@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'renapp',
+    'page',
+    'world',
+    'employee',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,10 @@ import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'login')],
+        'DIRS': [os.path.join(BASE_DIR, 'login'),
+                 os.path.join(BASE_DIR, 'page'),
+],
+        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +83,7 @@ WSGI_APPLICATION = 'render.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
